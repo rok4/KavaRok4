@@ -1,0 +1,6 @@
+#!/bin/bash
+
+build-compose
+
+echo $LAYERS | tr ' ' '\n' > layers_list
+docker-compose up

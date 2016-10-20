@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Remove layer [$1]"
+nb=$(grep "^$1$" ./layers_list | wc -l) # C'est moche
+if [[ "$nb" != "0" ]]
+then
+	sed -i "/$1/d" ./layers_list
+	LAYERS=$(cat ./layers_list | tr '\n' ' ')
+	docker-compose rm data-$1
+	build-compose
+	docker-compose restart rok4
+fi

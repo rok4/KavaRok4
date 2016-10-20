@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Add layer [$1]"
+nb=$(grep "^$1$" ./layers_list | wc -l) # C'est moche
+if [[ "$nb" == "0" ]]
+then
+	echo "$1" >> ./layers_list
+	LAYERS=$(cat ./layers_list | tr ' ' '\n')
+	build-compose
+	docker-compose start data-$1
+	docker-compose restart rok4
+fi

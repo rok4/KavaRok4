@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ "$1" != "" ]]
+then
+	$*
+else
+	echo -n "> "
+	while read line
+	do
+		$line
+		echo -n "> "
+	done
+fi

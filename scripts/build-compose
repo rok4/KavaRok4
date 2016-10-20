@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [[ -f ./docker-compose.yml ]]
+then
+	rm ./docker-compose.yml
+fi
+
+cat << EOF >> ./docker-compose.yml
+nginx:
+  image: rok4/kavarok4-nginx
+  ports:
+    - "8080:80"
+  links:
+    - rok4
+EOF
+
+for lay in ${LAYERS}
+do
+	cat << EOF	>> ./docker-compose.yml
+data-${lay}:
+  image: rok4/data-${lay}
+EOF
+done
+
+cat << EOF	>> ./docker-compose.yml
+rok4:
+  image: rok4/rok4
+  volumes_from:
+EOF
+
+for lay in ${LAYERS}
+do
+	cat << EOF	>> ./docker-compose.yml
+    - data-${lay}
+EOF
+done
