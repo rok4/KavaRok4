@@ -8,7 +8,7 @@ POC in progress..
 docker run -d --name rok4-master -v /var/run/docker.sock:/var/run/docker.sock -e LAYERS="scan1000" rok4/kavarok4
 ```
 
-Go to http://127.0.0.1:8008 :)
+Go to http://127.0.0.1:8080 :)
 
 ### Add layer
 
