@@ -2,15 +2,34 @@
 
 POC in progress..
 
+### Start rok4 with one layer
 
-docker run -it --name rok4-master -v /var/run/docker.sock:/var/run/docker.sock -e LAYERS="scan1000 bdortho-d075" kavarok4
+```
+docker run -d --name rok4-master -v /var/run/docker.sock:/var/run/docker.sock -e LAYERS="scan1000" rok4/kavarok4
+```
 
-and enter "up"
+Go to http://127.0.0.1:8008 :)
 
-goto http://127.0.0.1:8008 :)
+### Add layer
 
-to stop Ctrl+C and enter "stop"
+```
+docker exec rok4-master addLayer bdortho-d075
+```
 
-### Commands to add
-addLayer toto
-removeLayer toto
+You added a layer of photo Paris
+
+### Remove layer
+
+```
+docker exec rok4-master removeLayer scan1000
+```
+
+You removed a layer of scan1000 map
+
+### Stop
+
+```
+docker exec rok4-master stop && docker rm rok4-master
+```
+
+This command stops and removes all containers and volumes

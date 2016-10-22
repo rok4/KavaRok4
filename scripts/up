@@ -4,3 +4,4 @@ build-compose
 
 echo $LAYERS | tr ' ' '\n' > layers_list
 docker-compose up
+docker-compose rm -f -v
