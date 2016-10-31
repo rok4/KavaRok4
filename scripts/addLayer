@@ -7,5 +7,5 @@ then
 	echo "$1" >> ./layers_list
 	LAYERS=$(cat ./layers_list | tr ' ' '\n')
 	build-compose
-	docker-compose up -d --force-recreate rok4
+	docker-compose -p $APP_NAME up -d --force-recreate rok4
 fi

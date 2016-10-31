@@ -6,7 +6,7 @@ if [[ "$nb" != "0" ]]
 then
 	sed -i "/$1/d" ./layers_list
 	LAYERS=$(cat ./layers_list | tr '\n' ' ')
-	docker-compose rm -f data-$1
+	docker-compose -p $APP_NAME rm -f -v -a data-$1
 	build-compose
-	docker-compose up -d --force-recreate rok4
+	docker-compose -p $APP_NAME up -d --force-recreate rok4
 fi

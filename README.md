@@ -26,6 +26,12 @@ docker exec rok4-master removeLayer scan1000
 
 You removed a layer of scan1000 map
 
+### Scale rok4
+```
+docker exec rok4-master scale 3
+```
+You added 2 instances of rok4
+
 ### Stop
 
 ```

@@ -3,5 +3,5 @@
 build-compose
 
 echo $LAYERS | tr ' ' '\n' > layers_list
-docker-compose up
-docker-compose rm -f -v
+docker-compose -p $APP_NAME up
+docker-compose -p $APP_NAME rm -f -v -a

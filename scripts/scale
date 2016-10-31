@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Scale rok4 to $1"
+
+docker-compose -p $APP_NAME scale rok4=$1
+docker-compose -p $APP_NAME up -d --force-recreate nginx
