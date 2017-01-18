@@ -17,7 +17,7 @@ server {
     server_name  localhost;
 
     location / {
-        root /etc/nginx/conf.d/ ;
+        root /usr/share/nginx/html/ ;
         index index.html;
     }
     
